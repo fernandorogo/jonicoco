@@ -1,0 +1,25 @@
+.colormenu{
+    background-color: #6f0b17;
+} 
+
+.font{
+    font-family: 'Victor Mono', monospace;
+    font-size: 20px;
+}
+
+.btn-2 {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+  
+.btn-2:hover {
+    background-color: #b77916;
+    border-radius: 100px;
+    transition: all 1s ease-out;
+}
+
+
+
+
+
