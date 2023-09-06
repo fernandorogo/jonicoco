@@ -1,0 +1,104 @@
+.cardItem{
+    position: relative;
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px rgba(73,69,52,0.4);
+}
+
+.cardItem .content {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    background: white;
+}
+
+.cardItem .content .imgCard{
+    height: 45%;
+    margin-bottom: 1px;
+}
+
+.cardItem .content .imgCard img{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.cardItem .content span{
+    position: absolute;
+    width: 380px;
+    height: 192px;
+    background: linear-gradient(to right, #911625, #b00c1f);
+    transform: rotate(-25deg);
+    top: -50px;
+    left: -100px;
+}
+
+.cardItem .content h4{
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 1px;
+}
+
+.cardItem .content h6{
+    font-size: 18px;
+    color: #911625;
+}
+
+.cardItem .content p{
+    font-size: 15px;
+    color: #1a161f;
+}
+
+.cardItem .links{
+    position: absolute;
+    z-index:90 ;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
+    padding: 20px;
+    align-items: center;
+    right: 10px;
+    top: 6px;
+    transition: .5s;
+}
+
+.cardItem:hover .links{
+    right: -50px;
+    border-radius: 0 10px 10px 0;
+} 
+
+.cardItem .links a{
+    font-size: 20px;
+    color: #646069;
+}
+
+.cardItem .links a:nth-child(1):hover{ /* ese ntn significa que seleccionamos el primer link de todas las redes, es decir el facebok*/
+    color: #0158ca;
+}
+
+.cardItem .links a:nth-child(2):hover{ /* ese ntn significa que seleccionamos el primer link de todas las redes, es decir el facebok*/
+    color: #5097f4;
+}
+
+.cardItem .links a:nth-child(3):hover{ /* ese ntn significa que seleccionamos el primer link de todas las redes, es decir el facebok*/
+    color: #0d0808;
+}
+
+.cardItem .links a:nth-child(4):hover{ /* ese ntn significa que seleccionamos el primer link de todas las redes, es decir el facebok*/
+    color: #e35ebb;
+}
+

@@ -1,69 +1,70 @@
 .cover{
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .fonduco{
-    background: #911625
-  
+  background: #911625
+
 }
 
 .titulo{ /*fuente para el titulo*/
-    font-family: 'Victor Mono', monospace;
+  font-family: 'Victor Mono', monospace;
 }
 
 .bordeado{ /*bordeado a las imagenes*/
-   box-shadow: 5px 5px 20px rgba(3, 32, 51, .8);
-   border-radius: 30px;
-   transition: transform 0.3s;
+ box-shadow: 5px 5px 20px rgba(3, 32, 51, .8);
+ border-radius: 30px;
+ transition: transform 0.3s;
 }
 
 .bordeado:hover{
-    transform: scale(.9 );
+  transform: scale(.9 );
 }
 
 .leerMas { /*Color a los botones de "algunos productos"*/
-    background: #fff; /* color de fondo */
-    color: #000; /* color de fuente */
-    border: 2px solid  rgba(207,83,0,0.7903536414565826) ; /* tamaño y color de borde */
-    padding: 16px 20px;
-    border-radius: 10px; /* redondear bordes */
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    display: inline-block;
-    box-shadow: 5px 5px 15px rgba(3, 32, 51, .8);
-  }
-  .leerMas:hover {
-    color: #fff; /* color de fuente hover */
-  }
-  .leerMas::after {
-    content: "";
-    background: rgba(207,83,0,0.7903536414565826); /* color de fondo hover */
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    display: block;
-    top: 0;
-    bottom: 0;
-    left: -100%;
-    right: 100%;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-  }
-  .leerMas:hover::after {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
+  background: #fff; /* color de fondo */
+  color: #000; /* color de fuente */
+  border: 2px solid  rgba(207,83,0,0.7903536414565826) ; /* tamaño y color de borde */
+  padding: 16px 20px;
+  border-radius: 10px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  box-shadow: 5px 5px 15px rgba(3, 32, 51, .8);
+  text-decoration: none;
+}
+.leerMas:hover {
+  color: #fff; /* color de fuente hover */
+}
+.leerMas::after {
+  content: "";
+  background: rgba(207,83,0,0.7903536414565826); /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.leerMas:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
 }
 
 .video{
-    border-radius: 30px;
-    box-shadow: 5px 5px 15px rgba(3, 32, 51, .8);
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px rgba(3, 32, 51, .8);
 }
 
 .parraf{ /*Estilos a los parrafos de "Nuestros productos"*/
-  font-size: 20px;
+font-size: 20px;
 }
