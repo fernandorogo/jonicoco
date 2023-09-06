@@ -14,7 +14,6 @@ const Aplication = () => {
     <div>
         <NavbarDashboard/>  
         <Routes>
-            <Route exact path="/aplication/*" element={<Aplication/>} />
               <Route path='/' element={<Home/>}/>
               <Route path='clientes' element={<Clientes/>}/>
               <Route path='productos' element={<Productos/>}/>
