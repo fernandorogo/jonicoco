@@ -1,6 +1,6 @@
 import React from "react";
-import Jonicoco2 from "../images/Jonicoco2.jpeg";
 import Portada from "../images/Portada.jpg";
+import NuestrosOjos from "../images/larazondeserdejonicoco.jpeg";
 
 import Footer from "../Components/Footer";
 
@@ -42,34 +42,9 @@ const Resena = () => {
               resultado de estos acontecimientos, están muy satisfechos con los
               logros obtenidos en los últimos meses.
             </div>
-            <div className="card mb-3 mt-5" style={{ maxWidth: "1000px" }}>
-              <div className="row g-0">
-                <div className="col-md-6">
-                  <img
-                    src={Jonicoco2}
-                    className="img-fluid rounded-start"
-                    style={{ height: "350px", width: "100%" }}
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-6 ">
-                  <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
-                    <p className="card-text">
-                      <small className="text-body-secondary">
-                        Last updated 3 mins ago
-                      </small>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+
+
           <div className="col-md-6 p-4">
             <div className="container">
               <img
@@ -78,6 +53,37 @@ const Resena = () => {
                 style={{ width: "100%", height: "auto" }}
                 alt=""
               />
+            </div>
+          </div>
+        </div>
+
+        <div className="card mb-3 mt-5 rounded-5" style={{ maxWidth: "520px" }}>
+          <div className="row g-0">
+            <div className="col-md-6">
+              <img
+                src={NuestrosOjos}
+                className="img-fluid rounded-start"
+
+                alt="..."
+              />
+            </div>
+            <div className="col-md-6 ">
+              <div className="card-body">
+                <h4 className="card-title">La Razón de ser de </h4>
+                <h3 className="mb-4">
+                  <span style={{ color: "#911625" }}>Joni</span>coco
+                </h3>
+                <p className="card-text">
+                  Jonicoco nace de dos hermosos niños y los que han sido la razon de ser de este procto FAMILIAR.
+                  Juan Jose y Nicolas forman parte del Nombre joni y coco por nuestra materia prima.
+                </p>
+   
+                <p className="card-text ">
+                  <small className="text-body-secondary">
+                    Juan Jose hoy no nos acompaña, pero hacemos honor a él porque siempre va a estrar presente en nuestras VIDAS y en el PROYECTO.
+                  </small>
+                </p>
+              </div>
             </div>
           </div>
         </div>

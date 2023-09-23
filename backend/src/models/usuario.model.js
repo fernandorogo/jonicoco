@@ -6,7 +6,7 @@ const usuarioSchema = new Schema({  // schema se refiere a una varible cualquier
         type: String,
         required: true,
     },
-numerodocumento: {
+    numerodocumento: {
         type: Number,
         required: true,
     },
@@ -17,7 +17,7 @@ numerodocumento: {
     },
     segundonombre: {
         type: String,
-        required: true,
+      
     },
     primerapellido:{
         type: String,
@@ -28,26 +28,23 @@ numerodocumento: {
         require: true,
     },
    
-    direccion:{
-        type: String,
-        default: 0,
-    },
     telefono:{
-        type: String,
+        type: Number,
         default: 0,
     },
-   contrasena:{
+   contraseña:{
         type: String,
         require: true
     },
-    email:{
-        type:String,
-        require: true
-    },
+    rolusuario:{
+        type: String,
+        required: true
+    }
+ 
 
-    ordenp: [{type:Schema.Types.ObjectId, ref: "ordenp"}],
-    detallepedido: [{type:Schema.Types.ObjectId, ref: "detallepedido"}],
-    factura: [{type:Schema.Types.ObjectId, ref: "factura"}]
+   // ordenp: [{type:Schema.Types.ObjectId, ref: "ordenp"}],
+   // detallepedido: [{type:Schema.Types.ObjectId, ref: "detallepedido"}],
+    //factura: [{type:Schema.Types.ObjectId, ref: "factura"}]
 },
     {
         timestamps: true //Fecha donde se creó el esquema

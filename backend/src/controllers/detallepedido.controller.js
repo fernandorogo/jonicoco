@@ -3,7 +3,7 @@ const detallepedidoModel= require(`../models/detallepedido.model`)
 
 detallepedidoCtrl.listar = async (req, res) => {
     try {
-        const detallepedido = await detallepedidoModel.find().populate("producto")
+        const detallepedido = await detallepedidoModel.find().populate("producto").populate("ordenp")
         res.json({
             ok: true,
             detallepedido,
@@ -18,11 +18,13 @@ detallepedidoCtrl.listar = async (req, res) => {
 
 detallepedidoCtrl.add = async (req, res) => {
     try {
-        const { preciounitario, cantidad,producto } = req.body
+        const { preciounitario, cantidad, total, producto, ordenp } = req.body
         const newDetallesPedido = new detallepedidoModel({
             preciounitario,
             cantidad,
-            producto
+            total,
+            producto,
+            ordenp
         })
         await newDetallesPedido.save()
         res.json({
@@ -50,12 +52,16 @@ detallepedidoCtrl.update = async (req, res) => {
 
         const preciounitario= req.body.preciounitario || detallepedido.preciounitario
         const cantidad = req.body.cantidad || detallepedido.cantidad
+        const total = req.body.total || detallepedido.total
         const producto= req.body.producto || detallepedido.producto
+        const ordenp = req.body.ordenp || detallepedido.ordenp
 
         const detallepedidoUpdate = {
             preciounitario,
             cantidad,
-            producto
+            total,
+            producto,
+            ordenp
         }
         await detallepedido.updateOne(detallepedidoUpdate)
         res.json({

@@ -3,6 +3,11 @@ import Jonicoco1 from "../images/Jonicoco1.jpeg";
 import Jonicoco3 from "../images/Jonicoco5.jpeg";
 import Jonicoco2 from "../images/Jonicoco6.jpeg";
 import videoCoco from "../images/videoCoco.mp4";
+
+import Administrador from "../images/Administrador.jpg";
+import Developers1 from "../images/Developers1.jpg";
+import Developers2 from "../images/Developers2.jpg";
+import Gerente from "../images/Gerente.jpg";
 import "../view/EstilosNosotros.css";
 
 import { Link } from "react-router-dom";
@@ -38,23 +43,25 @@ const Nosotros = () => {
             </div>
           </div>
 
-          <h2 className="text-aligin-center mt-5 mb-4">FUNDADORES</h2>
+          <h2 className="text-aligin-center mt-5 mb-4">NUESTRO EQUIPO</h2>
 
-          <div className="container text-center">
-            <div className="row mb-5">
-              <div className="col mb-5 ">
-                <div className="cardItem me-5">
+          <div className="container">
+            <div className="row">
+
+
+              <div className="col mb-5 align-items-center ">
+                <div className="card cardItem me-2">
                   <div className="content">
                     <span></span>
                     <div className="imgCard">
-                      <img src={Jonicoco2} alt="" />
+                      <img src={Gerente} alt="" />
                     </div>
+                    <br />
                     <h4>Rosa Angelica Medina</h4>
-                    <h6>Empresaria</h6>
+                    <h6>Gerente</h6>
+                    <br />
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      A enim ut explicabo mollitia nesciunt magni vel ab
-                      sapiente placeat eum.
+                      Planificación estratégica y la toma de decisiones.
                     </p>
                   </div>
                   <div className="links">
@@ -73,20 +80,22 @@ const Nosotros = () => {
                   </div>
                 </div>
               </div>
+
+
               <div className="col mb-5">
                 {/*Segunda card */}
-                <div className="cardItem me-5">
+                <div className="cardItem me-2">
                   <div className="content">
                     <span></span>
                     <div className="imgCard">
-                      <img src={Jonicoco2} alt="" />
+                      <img src={Administrador} alt="" />
                     </div>
+                    <br />
                     <h4>Rosa Angelica Medina</h4>
-                    <h6>Empresaria</h6>
+                    <h6>Administrador</h6>
+                    <br />
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      A enim ut explicabo mollitia nesciunt magni vel ab
-                      sapiente placeat eum.
+                      Administra las finanzas, operaciones y marketing.
                     </p>
                   </div>
                   <div className="links">
@@ -105,20 +114,23 @@ const Nosotros = () => {
                   </div>
                 </div>
               </div>
+
+
+
               <div className="col mb-5">
                 {/*Tercera card */}
-                <div className="cardItem me-5">
+                <div className="cardItem me-2">
                   <div className="content">
                     <span></span>
                     <div className="imgCard">
-                      <img src={Jonicoco2} alt="" />
+                      <img src={Developers1} alt="" />
                     </div>
-                    <h4>Rosa Angelica Medina</h4>
-                    <h6>Empresaria</h6>
+                    <br />
+                    <h4>Andrés Marín Mesa</h4>
+                    <h6>Developers Junior</h6>
+                    <br />
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      A enim ut explicabo mollitia nesciunt magni vel ab
-                      sapiente placeat eum.
+                      Desarrollador Web y Lider de proyecto
                     </p>
                   </div>
                   <div className="links">
@@ -137,20 +149,23 @@ const Nosotros = () => {
                   </div>
                 </div>
               </div>
+
+
+
               <div className="col">
                 {/*Cuarta card*/}
-                <div className="cardItem me-5">
+                <div className="cardItem me-2">
                   <div className="content">
                     <span></span>
                     <div className="imgCard">
-                      <img src={Jonicoco2} alt="" />
+                      <img src={Developers2} alt="" />
                     </div>
-                    <h4>Rosa Angelica Medina</h4>
-                    <h6>Empresaria</h6>
+                    <br />
+                    <h4>Alejandro P. Valencia</h4>
+                    <h6>Developers Junior</h6>
+                    <br />
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      A enim ut explicabo mollitia nesciunt magni vel ab
-                      sapiente placeat eum.
+                      Desarrollador Backend y analista de datos.
                     </p>
                   </div>
                   <div className="links">

@@ -6,7 +6,7 @@ require('./database');
 
 const app = express();
 
-app.set("Port", 5000);
+app.set("Port", 4000);
 
 app.use(morgan("dev"));
 

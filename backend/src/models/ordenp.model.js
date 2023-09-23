@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const ordenSchema = new Schema({  // schema se refiere a una varible cualquiera, es decir, puede llevar cualquier nombre
-    codigopedido:{
+const ordenSchema = new Schema({  
+    ordenpedido:{
         type: Number,
         default:0,
     },
@@ -14,14 +14,22 @@ const ordenSchema = new Schema({  // schema se refiere a una varible cualquiera,
         type: String,
         required: true,
     },
-    preciototal: {
+    fechadespacho: {
+        type: String,
+    },
+    precio: {
         type: Number,
         required: true,
+    },
+    totalpedido: {
+        type: Number,
+        required:true
     },
     
   
     cliente: [{type:Schema.Types.ObjectId, ref: "cliente"}],
-    detallepedido: [{type:Schema.Types.ObjectId, ref: "detallepedido"}]
+   // detallepedido: [{type:Schema.Types.ObjectId, ref: "detallepedido"}]
+     usuario: [{type:Schema.Types.ObjectId, ref: "usuario"}]
 },
     {
         timestamps: true //Fecha donde se creó el esquema

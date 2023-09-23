@@ -3,7 +3,7 @@ const ordenpModel= require(`../models/ordenp.model`)
 
 ordenpCtrl.listar = async (req, res) => {
     try {
-        const ordenp = await ordenpModel.find().populate("detallepedido").populate("cliente");
+        const ordenp = await ordenpModel.find().populate("usuario", {primernombre:1}).populate("cliente", {primernombre:1});
         res.json({
             ok: true,
             ordenp,
@@ -18,14 +18,16 @@ ordenpCtrl.listar = async (req, res) => {
 
 ordenpCtrl.add = async (req, res) => {
     try {
-        const { codigopedido,estadocompra, fechacreacion, preciototal,detallepedido,cliente} = req.body
+        const { ordenpedido, estadocompra, fechacreacion, fechadespacho, precio, totalpedido,cliente, usuario} = req.body
         const newOrdenPedido = new ordenpModel({
-            codigopedido,
+            ordenpedido,
             estadocompra, 
             fechacreacion,
-            preciototal,
-            detallepedido,
+            fechadespacho,
+            precio,
+            totalpedido,
             cliente,
+            usuario
             
         })
         await newOrdenPedido.save()
@@ -51,20 +53,24 @@ ordenpCtrl.update = async (req, res) => {
                 message: "La orden de pedido no está registrada en la base de datos",
             })
         }
-        const codigopedido = req.body.codigopedido || ordenp.codigopedido
+        const ordenpedido = req.body.codigopedido || ordenp.ordenpedido
         const estadocompra = req.body.estadocompra || ordenp.estadocompra
         const fechacreacion = req.body.fechacreacion || ordenp.fechacreacion
-        const preciototal = req.body.preciototal || ordenp.preciototal
-        const detallepedido = req.body.detallepedido || ordenp.detallepedido
+        const fechadespacho = req.body.fechadespacho || ordenp.fechadespacho
+        const precio= req.body.precio || ordenp.precio
+        const totalpedido = req.body.totalpedido || ordenp.totalpedido
         const cliente = req.body.cliente || ordenp.cliente
+        const usuario = req.body.usuario || ordenp.usuario
 
         const ordenpUpdate = {
-            codigopedido,
+            ordenpedido,
             estadocompra, 
             fechacreacion,
-            preciototal, 
-            detallepedido,
+            fechadespacho,
+            precio, 
+            totalpedido,
             cliente,
+            usuario
             
         }
         await ordenp.updateOne(ordenpUpdate)

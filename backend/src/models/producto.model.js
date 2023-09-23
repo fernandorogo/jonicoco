@@ -2,10 +2,7 @@ const { Schema, model } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2');
 
 const productoSchema = new Schema({  // schema se refiere a una varible cualquiera, es decir, puede llevar cualquier nombre
-    codigo: {
-        type: Number,
-        required: true,
-    },
+  
     nombre: {
         type: String,
         required: true,
@@ -18,7 +15,7 @@ const productoSchema = new Schema({  // schema se refiere a una varible cualquie
         type: String,
         required: true,
     },
-    preciobase:{
+    precio:{
         type: Number,
         required: true
     }

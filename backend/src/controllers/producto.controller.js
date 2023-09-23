@@ -18,13 +18,13 @@ productoCtrl.listar= async (req,res) => {
 
 productoCtrl.add= async (req,res) => {
     try {
-        const { codigo,nombre, descripcion, presentacion, preciobase } = req.body
+        const {nombre, descripcion, presentacion, precio} = req.body
         const newProducto = new productoModel({
-            codigo,
+            
             nombre, 
             descripcion,
             presentacion,
-            preciobase
+            precio
         });
         await newProducto.save();
         res.json({
@@ -52,20 +52,20 @@ productoCtrl.update=async (req,res)=>{
 
             })
         }
-        const codigo = req.body.codigo || producto.codigo 
+        
+       
         const nombre = req.body.nombre || producto.nombre
         const descripcion= req.body.descripcion || producto.descripcion
         const presentacion = req.body.presentacion || producto.presentacion
-        const preciobase = req.body.preciobase ||  producto.preciobase
+        const precio = req.body.precio ||  producto.precio
         
 
 
         const productoUpdate = {
-            codigo,
             nombre, 
             descripcion,
             presentacion,
-            preciobase
+            precio
 
         }
         await producto.updateOne(productoUpdate)

@@ -18,7 +18,7 @@ clienteCtrl.listar= async (req,res) => {
 
 clienteCtrl.add= async (req,res) => {
     try {
-        const { n_documento , tipodedocumento, primernombre, segundonombre, primerapellido, segundoapellido,correoelectronico, direccion,telefono, } = req.body
+        const { n_documento , tipodedocumento, primernombre, segundonombre, primerapellido, segundoapellido,correoelectronico, direccion, telefono, razonsocial } = req.body
         const newCliente = new clienteModel({
             n_documento,
             tipodedocumento,
@@ -28,7 +28,8 @@ clienteCtrl.add= async (req,res) => {
             segundoapellido,
             correoelectronico,
             direccion,
-            telefono
+            telefono,
+            razonsocial
             
         });
         await newCliente.save();
@@ -53,7 +54,7 @@ clienteCtrl.update=async (req,res)=>{
         if (!cliente){
             return res.status(400).json({
                 ok:false,
-                message:"el cliente no esta registrado en la base de datos"
+                message:"El cliente no esta registrado en la base de datos"
 
             })
         }
@@ -67,6 +68,7 @@ clienteCtrl.update=async (req,res)=>{
         const correoelectronico = req.body.correoelectronico || cliente.correoelectronico
         const direccion = req.body.direccion || cliente.direccion
         const telefono = req.body.telefono || cliente.telefono
+        const razonsocial = req.body.razonsocial || cliente.razonsocial
        
 
 
@@ -80,7 +82,8 @@ clienteCtrl.update=async (req,res)=>{
             segundoapellido,
             correoelectronico,
             direccion,
-            telefono
+            telefono,
+            razonsocial
             
         }
         await cliente.updateOne(clienteUpdate)
@@ -105,14 +108,14 @@ clienteCtrl.delete= async(req,res)=>{
         if (!cliente){
             return res.status(404).json({
                 ok:false,
-                message:"el cliente no existe"
+                message:"El cliente no existe"
             })
         }
 
         await cliente.deleteOne()
         res.json({
             ok:true,
-            message:"el cliente fue eliminado de todas partes"
+            message:"El cliente fue eliminado de todas partes"
         })
 
 

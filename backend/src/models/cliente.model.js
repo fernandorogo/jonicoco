@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const clienteSchema = new Schema({  // schema se refiere a una varible cualquiera, es decir, puede llevar cualquier nombre
+const clienteSchema = new Schema({  
     n_documento: {
         type: Number,
         required: true,
@@ -16,7 +16,7 @@ const clienteSchema = new Schema({  // schema se refiere a una varible cualquier
     },
     segundonombre: {
         type: String,
-        required: true,
+    
     },
     primerapellido:{
         type: String,
@@ -33,18 +33,16 @@ const clienteSchema = new Schema({  // schema se refiere a una varible cualquier
     },
     direccion:{
         type: String,
-        default: 0,
+       
     },
     telefono:{
         type: Number,
         default: 0,
     },
-
-    
-    
-
-
-    
+    razonsocial: {
+        type: String,
+   
+    }
 
 },
     {
