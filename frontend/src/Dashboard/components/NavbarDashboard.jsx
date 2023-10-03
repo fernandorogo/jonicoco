@@ -25,7 +25,7 @@ const NavbarDashboard = () => {
           <Link to="/" className="navbar-brand">
             <img className="rounded-circle border border-5" src={logo} style={{ width: 100 }} alt="" />
           </Link>
-          <button className="navbar-toggler" type="button" onClick={handleToggle}             aria-controls="navbarSupportedContent" aria-expanded={!isCollapsed} aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" onClick={handleToggle} aria-controls="navbarSupportedContent" aria-expanded={!isCollapsed} aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className={`collapse navbar-collapse justify-content-end${isCollapsed ? '' : ' show'}`} id="navbarSupportedContent">
@@ -50,16 +50,10 @@ const NavbarDashboard = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link to="facturas" className="nav-link text-white" onClick={() => navigateTo('/facturas')}>
-                <i className="fa-solid fa-list-check me-2" style={{color: "#ebeff4"}}></i>
-                Facturas
-                </Link>
-              </li>
-              
+        
               <li className="nav-item">
                 <Link to="pedidos" className="nav-link text-white" onClick={() => navigateTo('/pedidos')}>
-                <i class="fa-solid fa-bag-shopping me-2" style={{color: "#ebeff4"}}></i>
+                <i className="fa-solid fa-bag-shopping me-2" style={{color: "#ebeff4"}}></i>
                 Pedidos
                 </Link>
               </li>
@@ -87,9 +81,7 @@ const NavbarDashboard = () => {
                   <li>
                     <Link className="dropdown-item"><i className="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i> Configurción</Link>
                   </li>
-                  <li>
-                    <Link className="dropdown-item"><i className="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i> Registro de actividades</Link>
-                  </li>
+          
                   <li>
                     <Link to="/login" className="dropdown-item"><i className="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>
                       Cerrar sesión

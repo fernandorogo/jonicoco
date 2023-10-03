@@ -23,9 +23,9 @@ const Home = () => {
           <div className="col-6">
             <div className="card border-black mb-3">
               <div className="card-body">
-                <h5 className="card-title">Generar Factura</h5>
+                <h5 className="card-title">Buscar clientes</h5>
                 <br></br>
-                <Link to="Facturas" className="btn btn-danger">Ir a facturar</Link>
+                <Link to="Clientes" className="btn btn-danger">Ir a clientes</Link>
               </div>
             </div>
           </div>

@@ -3,7 +3,8 @@ const ordenpModel= require(`../models/ordenp.model`)
 
 ordenpCtrl.listar = async (req, res) => {
     try {
-        const ordenp = await ordenpModel.find().populate("usuario", {primernombre:1}).populate("cliente", {primernombre:1});
+        const ordenp = await ordenpModel.find();
+        //const ordenp = await ordenpModel.find().populate("usuario", //{primernombre:1}).populate("cliente", {primernombre:1});
         res.json({
             ok: true,
             ordenp,

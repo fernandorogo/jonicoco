@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router'
 import Clientes from "../Dashboard/Clientes"
 import Facturas from "../Dashboard/Facturas"
 import Home from "../Dashboard/Home"
-import Pedidos from "../Dashboard/Pedidos"
+import Pedidos from "../Dashboard/Ordenp"
 import Productos from "../Dashboard/Productos"
 import Usuario from "../Dashboard/Usuario"
 import NavbarDashboard from './components/NavbarDashboard'

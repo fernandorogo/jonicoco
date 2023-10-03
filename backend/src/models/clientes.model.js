@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const clienteSchema = new Schema({  
+const clientesSchema = new Schema({  
     n_documento: {
         type: Number,
         required: true,
@@ -12,7 +12,7 @@ const clienteSchema = new Schema({
     },
     primernombre: {
         type: String,
-        required: true,
+        
     },
     segundonombre: {
         type: String,
@@ -20,11 +20,11 @@ const clienteSchema = new Schema({
     },
     primerapellido:{
         type: String,
-        required: true
+       
     },
     segundoapellido:{
         type: String,
-        require: true,
+        
     },
     correoelectronico:{
         type: String,
@@ -33,13 +33,18 @@ const clienteSchema = new Schema({
     },
     direccion:{
         type: String,
-       
+       require: true,
     },
     telefono:{
         type: Number,
         default: 0,
+        requier:true,
     },
     razonsocial: {
+        type: String,
+    },
+
+    nombre: {
         type: String,
    
     }
@@ -49,6 +54,6 @@ const clienteSchema = new Schema({
         timestamps: true //Fecha donde se creó el esquema
     });
 
-clienteSchema.plugin(mongoosePaginate)
+clientesSchema.plugin(mongoosePaginate)
 
-module.exports = model('cliente', clienteSchema);
+module.exports = model('cliente', clientesSchema);

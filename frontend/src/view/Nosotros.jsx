@@ -43,7 +43,7 @@ const Nosotros = () => {
 
       {/*Aqui inicia la posicion de las card */}
       <div className="row justify-content-md-center">
-        <h2 className="text-aligin-center mt-5 mb-4">NUESTRO EQUIPO</h2>
+        <h2 className="text-aligin-center mt-5 mb-4">NUESTRO EQUIPO</h2>cd 
         {/* Inicio Card1 */}
         <div className="col-12 col-md-6 col-lg-3 mb-5 align-items-center mt-3">
           <div className="card cardItem">
