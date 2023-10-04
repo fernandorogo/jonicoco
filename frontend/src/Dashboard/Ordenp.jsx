@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "../Dashboard/Ordenp.estilo.css";
+import Breadcrumbs from "./components/Breadcrumbs ";
 
 const Ordenp = () => {
   const [ordenp, setOrdenp] = useState([]);
@@ -154,30 +155,22 @@ const Ordenp = () => {
 
   return (
     <div>
+      <div className=" container" style={{ textAlign: 'left' }}>
+        <Breadcrumbs />
+      </div>
       <div className="container-md mt-5">
-        <div
-          className={`modal fade ${isModalOpen ? "show" : ""}`}
-          id="staticBackdrop"
-          data-bs-backdrop="static"
-          data-bs-keyboard="false"
-          tabIndex="-1"
-          aria-labelledby="staticBackdropLabel"
-          aria-hidden={!isModalOpen}
-          style={{ display: isModalOpen ? "block" : "none" }}
+        <div className={`modal fade ${isModalOpen ? "show" : ""}`} id="staticBackdrop" 
+          data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" 
+          aria-labelledby="staticBackdropLabel" aria-hidden={!isModalOpen} style={{ display: isModalOpen ? "block" : "none" }}
         >
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
               <div
-                className="modal-header"
-                style={{ backgroundColor: "#d84052" }}
-              >
+                className="modal-header" style={{ backgroundColor: "#d84052" }}>
                 <h5 className="modal-title" id="staticBackdropLabel">
                   Registro de Ordenp
                 </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
+                <button type="button" className="btn-close" data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
@@ -303,115 +296,71 @@ const Ordenp = () => {
       </div>
 
       {/*Inicio de la tabla */}
-
       <div className='container container-flex card Larger shadow p-0 mb-15 bg-body rounded'>
+        <div className='container'>
+          <h4 className="text-danger fw-bold m-0 mt-2 text-center">Orden de pedidos</h4>
+          <div>
+            <button
+              type="button" className="btn btn-danger rounded-circle mt-3"  onClick={() => {
+                setIsModalOpen(true);
+              }}
+              title="Haga clic para agregar un nuevo pedido"><i className="fa-solid fa-plus fa-beat "></i>
+            </button>
+          </div>
+        </div>
         <div className="card-header d-flex justify-content-between align-items-center">
-          <div className='container'>
-            <h4 className="text-danger fw-bold m-0 mt-2 text-center">Orden de pedidos</h4>
-            <div>
-              <button
-                type="button"
-                className="btn btn-danger rounded-circle mt-3"
-                onClick={() => {
-                  setIsModalOpen(true);
-                }}
-                title="Haga clic para agregar un nuevo pedido"
-              >
-                <i className="fa-solid fa-plus fa-beat "></i>
-              </button>
-            </div>
 
-            <div className='container-fluid d-flex d-none d-md-block '>
-
-              <div className="container container-fluid table-responsive">
-                <table className='table table-bordered table-hover mt-2'>
-                  <thead className='table-danger'>
-                    <tr>
-                      <th scope="col" className="responsive-text">
-                        #
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Orden pedido
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Estado compra
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Fecha creacion
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Fecha despacho
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Precio
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Total pedido
-                      </th>
-                      <th scope="col" className="responsive-text">
-                        Acciones
-                      </th>
+          <div className='container-fluid d-flex d-none d-md-block '>
+            <div className="container container-fluid table-responsive">
+              <table className='table table-bordered table-hover mt-2'>
+                <thead className='table-danger'>
+                  <tr>
+                    <th scope="col" className="responsive-text">#</th>
+                    <th scope="col" className="responsive-text">Orden pedido</th>
+                    <th scope="col" className="responsive-text">Estado compra</th>
+                    <th scope="col" className="responsive-text">Fecha creacion</th>
+                    <th scope="col" className="responsive-text">Fecha despacho</th>
+                    <th scope="col" className="responsive-text">Precio</th>
+                    <th scope="col" className="responsive-text">Total pedido</th>
+                    <th scope="col" className="responsive-text">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Array.isArray(ordenp) && ordenp.map((item, i) => (
+                    <tr key={item._id}>
+                      <td className="responsive-text ">{i + 1}</td>
+                      <td className="responsive-text">{item.ordenpedido}</td>
+                      <td className="responsive-text">{item.estadocompra}</td>
+                      <td className="responsive-text">{item.fechacreacion}</td>
+                      <td className="responsive-text">{item.fechadespacho}</td>
+                      <td className="responsive-text">{item.precio}</td>
+                      <td className="responsive-text">{item.totalpedido}</td>
+                      <td>
+                        <div className="btn-group btn-group-sm" role="group">
+                          <span className="btn btn-primary d-flex align-items-center me-2"
+                            onClick={() => editData(item)}><i className="fa-solid fa-pencil space-i"></i>
+                          </span>
+                          <span
+                            className="btn btn-danger d-flex align-items-center"
+                            onClick={() => deleteOrdenp(item._id)}><i className="fa-solid fa-trash"></i>
+                          </span>
+                        </div>
+                      </td>
                     </tr>
-                  </thead>
-
-                  <tbody>
-                    {Array.isArray(ordenp) &&
-                      ordenp.map((item, i) => (
-                        <tr key={item._id}>
-                          <td className="responsive-text ">{i + 1}</td>
-                          <td className="responsive-text">
-                            {item.ordenpedido}
-                          </td>
-                          <td className="responsive-text">
-                            {item.estadocompra}
-                          </td>
-                          <td className="responsive-text">
-                            {item.fechacreacion}
-                          </td>
-                          <td className="responsive-text">
-                            {item.fechadespacho}
-                          </td>
-                          <td className="responsive-text">{item.precio}</td>
-                          <td className="responsive-text">
-                            {item.totalpedido}
-                          </td>
-                          <td>
-                            <div
-                              className="btn-group btn-group-sm"
-                              role="group"
-                            >
-                              <span
-                                className="btn btn-primary d-flex align-items-center me-2"
-                                onClick={() => editData(item)}
-                              >
-                                <i className="fa-solid fa-pencil space-i"></i>
-                              </span>
-
-                              <span
-                                className="btn btn-danger d-flex align-items-center"
-                                onClick={() => deleteOrdenp(item._id)}
-                              >
-                                <i className="fa-solid fa-trash"></i>
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
-
           {/*Final tabla */}
 
           {/*Inicio card*/}
-          <div className="d-md-none">
+          <div className="container d-md-none">
             {Array.isArray(ordenp) &&
               ordenp.map((item, i) => (
-                <div key={item._id} className="card border-3">
+                <div key={item._id} className="card border-3 mt-3">
                   {/* Contenido de la tarjeta */}
-                  <div className="card-body">
+                  <div className='card-body'>
                     <h5 className="card-title">Ordenp {i + 1}</h5>
                     <p className="card-text">
                       <strong>Orden pedido:</strong> {item.ordenpedido}
@@ -445,11 +394,9 @@ const Ordenp = () => {
                 </div>
               ))}
           </div>
-          <div className="my-1 d-flex justify-content-end mb-3 border-5"></div>
         </div>
       </div>
-      {/*Final card */}
-    </div>
+    </div >
   );
 };
 

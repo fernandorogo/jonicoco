@@ -1,8 +1,12 @@
 import React from 'react'
+import Breadcrumbs from './components/Breadcrumbs '
 
 const Pedidos = () => {
   return (
-    <div className='container-md mt-5'>
+    <div>
+      <div className=" container" style={{ textAlign: 'left' }}>
+        <Breadcrumbs/>
+      </div>
 
       <button type="button" className="btn btn-primary" style={{ backgroundColor: "#7a1520" }} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         < i className="fa-solid fa-plus fa-beat fa-lg me-2" style={{ color: "#ffffff" }}></i>Pedidos

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import Breadcrumbs from './components/Breadcrumbs ';
 
 
 
@@ -194,6 +195,9 @@ const Clientes = () => {
 
   return (
     <div>
+      <div className=" container" style={{ textAlign: 'left' }}>
+        <Breadcrumbs />
+      </div>
       <div className='container-md mt-5'>
 
         <div className={`modal fade ${isModalOpen ? 'show' : ''}`} id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden={!isModalOpen} style={{ display: isModalOpen ? 'block' : 'none' }}>
@@ -321,84 +325,79 @@ const Clientes = () => {
                       </button>
                       <button type="submit" className="btn btn-primary">Guardar Registro</button>
                     </div>
-
                   </div>
                 </form>
-
               </div>
             </div>
           </div>
         </div>
       </div >
 
-
-
+      {/*Inicio de la tabla */}
 
       <div className='container container-flex card Larger shadow p-0 mb-15 bg-body rounded'>
+        <div className='container'>
+          <h4 className="text-danger fw-bold m-0 mt-2 text-center"> Clientes</h4>
+          <div>
+            <button type="button" className="btn btn-danger rounded-circle mt-3" style={{ backgroundColor: "#7a1520" }}
+              onClick={() => {
+                setIsModalOpen(true);
+              }} title="Haga clic para agregar un nuevo cliente">< i className="fa-solid fa-plus fa-beat "></i></button>
+          </div>
+        </div>
         <div className="card-header d-flex justify-content-between align-items-center">
 
-          <div className='container'>
-            <h4 className="text-danger fw-bold m-0 mt-2 text-center"> Clientes</h4>
-            <div>
-              <button type="button" className="btn btn-danger rounded-circle mt-3" style={{ backgroundColor: "#7a1520" }}
-                onClick={() => {
-                  setIsModalOpen(true);
-                }} title="Haga clic para agregar un nuevo cliente">< i className="fa-solid fa-plus fa-beat "></i></button>
-            </div>
-
-
-            <div className='container-fluid d-flex d-none d-md-block '>
-
-              <div className="container container-fluid table-responsive">
-                <table className='table table-bordered table-hover mt-2'>
-                  <thead className='table-danger'>
-                    <tr>
-                      <th scope="col" className="responsive-text">#</th>
-                      <th scope="col" className="responsive-text">Tipo</th>
-                      <th scope="col" className="responsive-text">Documento</th>
-                      <th scope="col" className="responsive-text">Primer nombre</th>
-                      <th scope="col" className="responsive-text">Primer apellido</th>
-                      <th scope="col" className="responsive-text">Correo electrónico</th>
-                      <th scope="col" className="responsive-text">Teléfono</th>
-                      <th scope="col" className='responsive-text'>Razón Social</th>
-                      <th scope="col" className="responsive-text">Acciones</th>
+          <div className='container-fluid d-flex d-none d-md-block '>
+            <div className="container container-fluid table-responsive">
+              <table className='table table-bordered table-hover mt-2'>
+                <thead className='table-danger'>
+                  <tr>
+                    <th scope="col" className="responsive-text">#</th>
+                    <th scope="col" className="responsive-text">Tipo</th>
+                    <th scope="col" className="responsive-text">Documento</th>
+                    <th scope="col" className="responsive-text">Primer nombre</th>
+                    <th scope="col" className="responsive-text">Primer apellido</th>
+                    <th scope="col" className="responsive-text">Correo electrónico</th>
+                    <th scope="col" className="responsive-text">Teléfono</th>
+                    <th scope="col" className='responsive-text'>Razón Social</th>
+                    <th scope="col" className="responsive-text">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Array.isArray(clientes) && clientes.map((item, i) => (
+                    <tr key={item._id}>
+                      <td className="responsive-text">{i + 1}</td>
+                      <td className="responsive-text">{item.tipodedocumento}</td>
+                      <td className="responsive-text">{item.n_documento}</td>
+                      <td className="responsive-text">{item.primernombre}</td>
+                      <td className="responsive-text">{item.primerapellido}</td>
+                      <td className="responsive-text">{item.correoelectronico}</td>
+                      <td className="responsive-text">{item.telefono}</td>
+                      <td className='responsive-text'>{item.nombre}</td>
+                      <td>
+                        <div className="btn-group btn-group-sm" role="group">
+                          <span className='btn btn-primary d-flex align-items-center me-2'
+                            onClick={() => editData(item)}>
+                            <i className="fa-solid fa-pencil space-i"></i>
+                          </span>
+                          <span className='btn btn-danger d-flex align-items-center'
+                            onClick={() => deleteClientes(item._id)}>
+                            <i className="fa-solid fa-trash"></i>
+                          </span>
+                        </div>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {Array.isArray(clientes) && clientes.map((item, i) => (
-                      <tr key={item._id}>
-                        <td className="responsive-text">{i + 1}</td>
-                        <td className="responsive-text">{item.tipodedocumento}</td>
-                        <td className="responsive-text">{item.n_documento}</td>
-                        <td className="responsive-text">{item.primernombre}</td>
-                        <td className="responsive-text">{item.primerapellido}</td>
-                        <td className="responsive-text">{item.correoelectronico}</td>
-                        <td className="responsive-text">{item.telefono}</td>
-                        <td className='responsive-text'>{item.nombre}</td>
-                        <td>
-                          <div className="btn-group btn-group-sm" role="group">
-                            <span className='btn btn-primary d-flex align-items-center me-2'
-                              onClick={() => editData(item)}>
-                              <i className="fa-solid fa-pencil space-i"></i>
-                            </span>
-                            <span className='btn btn-danger d-flex align-items-center'
-                              onClick={() => deleteClientes(item._id)}>
-                              <i className="fa-solid fa-trash"></i>
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
+          {/*Final tabla */}
 
-          <div className='d-md-none'>
+          {/*Inicio card*/}
+          <div className='container d-md-none'>
             {Array.isArray(clientes) && clientes.map((item, i) => (
-              <div key={item._id} className='card border-3 border-dark'>
+              <div key={item._id} className="card border-3 mt-2">
                 {/* Contenido de la tarjeta */}
                 <div className='card-body'>
                   <h5 className='card-title'>Clientes {i + 1}</h5>
@@ -428,10 +427,7 @@ const Clientes = () => {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="my-1 d-flex justify-content-end mb-3 border-5">
-
-          </div>
+          </div>   
         </div>
       </div>
     </div >
